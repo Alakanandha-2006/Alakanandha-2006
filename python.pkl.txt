@@ -1,0 +1,7 @@
+/project-folder
+│
+├── Boston_Regression.ipynb         # Notebook with model training.
+├── app.py                          # Flask application.
+├── boston_lr_model.pkl             # Saved model.
+└── templates/
+    └── index.html                # HTML file with form and CSS.

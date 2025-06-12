@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Boston House Price Predictor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 40%;
+            margin: 50px auto;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0px 0px 10px #aaa;
+            border-radius: 8px;
+        }
+        h1 {
+            text-align: center;
+            color: #444;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin: 10px 0 5px;
+        }
+        input[type="text"], input[type="number"] {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="submit"] {
+            margin-top: 15px;
+            padding: 10px;
+            background: #007BFF;
+            border: none;
+            color: #fff;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        input[type="submit"]:hover {
+            background: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            text-align: center;
+        }
+        .error {
+            color: red;
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Boston House Price Predictor</h1>
+        <form method="POST">
+            <!-- For each feature of the dataset, create a text input. -->
+            <!-- You might need to adapt this form to match the expected feature names -->
+            <label for="CRIM">CRIM</label>
+            <input type="number" step="any" id="CRIM" name="CRIM" required>
+            
+            <label for="ZN">ZN</label>
+            <input type="number" step="any" id="ZN" name="ZN" required>
+            
+            <label for="INDUS">INDUS</label>
+            <input type="number" step="any" id="INDUS" name="INDUS" required>
+            
+            <label for="CHAS">CHAS</label>
+            <input type="number" step="any" id="CHAS" name="CHAS" required>
+            
+            <label for="NOX">NOX</label>
+            <input type="number" step="any" id="NOX" name="NOX" required>
+            
+            <label for="RM">RM</label>
+            <input type="number" step="any" id="RM" name="RM" required>
+            
+            <label for="AGE">AGE</label>
+            <input type="number" step="any" id="AGE" name="AGE" required>
+            
+            <label for="DIS">DIS</label>
+            <input type="number" step="any" id="DIS" name="DIS" required>
+            
+            <label for="RAD">RAD</label>
+            <input type="number" step="any" id="RAD" name="RAD" required>
+            
+            <label for="TAX">TAX</label>
+            <input type="number" step="any" id="TAX" name="TAX" required>
+            
+            <label for="PTRATIO">PTRATIO</label>
+            <input type="number" step="any" id="PTRATIO" name="PTRATIO" required>
+            
+            <label for="B">B</label>
+            <input type="number" step="any" id="B" name="B" required>
+            
+            <label for="LSTAT">LSTAT</label>
+            <input type="number" step="any" id="LSTAT" name="LSTAT" required>
+            
+            <input type="submit" value="Predict Price">
+        </form>
+        {% if prediction %}
+            <div class="result">
+                <p>Predicted House Price: ${{ prediction }}k</p>
+            </div>
+        {% endif %}
+        {% if error %}
+            <div class="error">
+                <p>Error: {{ error }}</p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
